@@ -1,0 +1,17 @@
+.git
+.gitignore
+README.md
+node_modules
+.env.local
+.env.*.local
+.next
+.turbo
+dist
+*.test.ts
+*.test.tsx
+__tests__
+coverage
+.DS_Store
+*.log
+.vscode
+.idea
