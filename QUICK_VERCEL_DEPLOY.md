@@ -11,18 +11,41 @@ Visit: https://vercel.com/new
 - Click **"Import"**
 
 ### Step 3: Add Environment Variables
-Click **"Environment Variables"** and add:
+Click **"Environment Variables"** section and add each variable manually:
 
-```
-DATABASE_URL = [Your Supabase Connection Pooling URL]
-DIRECT_URL = [Your Supabase Direct URL]
-NEXTAUTH_SECRET = [Generate: openssl rand -base64 32]
-NEXTAUTH_URL = https://[your-project-name].vercel.app
-NEXT_PUBLIC_APP_URL = https://[your-project-name].vercel.app
-```
+1. Click **"Add Environment Variable"**
+2. Enter variable name in **"Name"** field
+3. Enter value in **"Value"** field  
+4. Select **"Production"** for environment
+5. Repeat for all 5 variables below
+
+**Variables to Add:**
+
+| Name | Value | Example |
+|------|-------|---------|
+| DATABASE_URL | Your Supabase Connection Pooling URL | `postgresql://user:pass@host:6543/db?schema=public&pgbouncer=true` |
+| DIRECT_URL | Your Supabase Direct Connection URL | `postgresql://user:pass@host:5432/db?schema=public` |
+| NEXTAUTH_SECRET | Run: `openssl rand -base64 32` | `abc123xyz789...` |
+| NEXTAUTH_URL | Your Vercel URL | `https://mychronos-app.vercel.app` |
+| NEXT_PUBLIC_APP_URL | Same as NEXTAUTH_URL | `https://mychronos-app.vercel.app` |
+
+⚠️ **Important**: Do NOT copy the text `[...]` - replace with actual values only.
+
+### Step 3.5: Get Supabase URLs
+
+Before adding environment variables, get your Supabase connection strings:
+
+1. Go to **Supabase Dashboard** > Your Project > **Settings** > **Database**
+2. Find **"Connection String"** section
+3. Copy the **Connection Pooling** URL → use for `DATABASE_URL`
+4. Copy the regular **Connection String** → use for `DIRECT_URL`
+5. Replace `[YOUR-PASSWORD]` in both strings with your database password
+
+
 
 ### Step 4: Deploy
-Click **"Deploy"** and wait ~2-3 minutes
+After adding all 5 environment variables, click **"Deploy"** and wait ~2-3 minutes
+
 
 ---
 
