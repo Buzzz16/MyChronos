@@ -1,5 +1,6 @@
 export { auth as middleware } from "./auth"
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|login|register).*)"],
+  // Only protect dashboard route to minimize middleware bundle
+  matcher: ["/dashboard/:path*"],
 }
